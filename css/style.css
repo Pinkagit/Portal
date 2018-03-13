@@ -1,0 +1,374 @@
+/* ------------ common ---------- */
+body{
+    width: 100%;
+    background: url("../images/pnl_guanwagn_fangge.png");
+    font-family: 'Raleway', sans-serif;
+    height: auto;
+}
+html{
+    font-size: 20px;
+}
+.container{
+    width: 57rem;
+    height: 100%;
+    /* background: lightgray; */
+    margin: 0 auto;
+    /* overflow: hidden; */
+}
+.section_title{
+    width: 19.5rem; 
+    height: 3px;
+    margin: 50px auto;
+    border: 1px solid #fff;
+    background: #fff;
+    text-align: center;
+    border-radius: 5px;
+}
+.section_title>h4{
+    display: inline-block;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-top: -35px;
+    padding: 0 17px;
+}
+.container>.content{
+    width: 100%;
+    height: 80%;
+    margin: 0 auto;
+}
+/* ----------- @media --------- */
+@media screen and (max-width:1200px){
+    html{
+        font-size: 18px;
+    }
+    .product{
+        /* height: auto !important; */
+    }
+}
+@media screen and (min-width:990px) and (max-width:1200px){
+    html{
+        font-size: 17px;
+    }
+    .container{
+        width: 940px;
+    }
+     .banner {
+        height: 600px !important;
+    }
+}
+@media screen and (min-width:770px) and (max-width:990px){
+    html{
+        font-size: 15px;
+    }
+    .container{
+        width: 720px;
+    }
+    .banner {
+        height: 500px !important;
+    }
+}
+@media screen and (max-width:770px){
+    html{
+        font-size: 14px;
+    }
+    .container{
+        width: 100%;
+        position: relative;
+    }
+    .container>.content{
+         width: 90%;
+    }
+    .nav-navbar{
+        width: 100%!important;
+        position: absolute;
+    }
+    .nav-brand{
+        position: absolute;
+        z-index: 2;
+    }
+    .icon-liebiao2{
+        display: block!important;
+        font-size: 30px;
+        float: right;
+        margin-right: 16px;
+        margin-top: 7px;
+        color: #fff;
+    }
+    .navbar-container{
+        flex-direction: column!important;
+        transform: scale(1, 0);
+        transform-origin: top center;
+        margin-top: 50px !important;
+    }
+    .banner {
+        height: 400px !important;
+    }
+}
+@media (max-width: 667px){
+    .banner {
+        height: 350px !important;
+    }
+}
+@media (max-width: 600px){
+    .banner {
+        height: 375px !important;
+    }
+}
+@media (max-width: 568px){
+    html{
+        font-size: 15px;
+    }
+    .banner{
+        height: 280px !important;
+    }
+    .product{
+        height: auto !important;
+    }
+    .product .content{
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+    }
+}
+
+/* ------------ nav ---------- */
+header{
+    background: lightcoral;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    z-index: 99;
+}
+header>.container{
+    transition: all 1s;
+}
+.nav-brand{
+    width: 200px;
+    height: 100%;
+    background: khaki;
+    float: left;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 2.5rem;
+    color: #fff;
+    text-indent: 1em;
+}
+.nav-navbar{
+    width: 380px;
+    height: 100%;
+    background: lightskyblue;
+    float: right;
+    line-height: 2.5rem;
+}
+.navbar-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.navbar-container-sacle1{
+    transform: scale(1, 1);
+    transition: all .5s;
+}
+.navbar-container>li{
+    background: lightseagreen;
+    font-size: 14px;
+    line-height: 2.5rem;
+    text-align: center;
+    color: #fff;
+    flex: 1;
+    cursor: pointer;
+}
+.navbar-container>li:hover{
+    background: antiquewhite;
+}
+/* ------------- banner ------------- */
+.banner{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: height 1s;
+    margin-top: 50px;
+    overflow: hidden;
+    float: left;
+}
+#banner-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.banImg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform .8s;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.banner-img1{
+    top: 0;
+    background-image: url("../images/banner01.png");
+}
+.banner-img2{
+    top: -100%;
+}
+/* ------------ banner_title ----------- */
+.banner_title{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+}
+.banner_title>ul{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 80px;
+}
+.banner_title>ul>li{
+    text-align: center;
+    position: relative;
+    margin-right: 15px;
+    font-family: normal;
+    cursor: pointer;
+}
+.bottom_layer{
+    opacity: .7;
+    color: #fff;
+}
+.bottom_layer:hover{
+    opacity: 1;
+}
+.title_mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    color: #fff;
+    overflow: hidden;
+}
+.title_line{
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: scale(0, 1);
+    transition: all 1.5s;
+}
+.banner_title>ul>li i{
+    font-size: 28px;
+    margin-right: 5px;
+}
+/* ---------------- product ----------------- */
+.product{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 123, 240, 0.959);
+}
+.product .section_title>h4{
+    background: rgba(50, 123, 240, 0.959);
+}
+.product .content{
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.products{
+    /* width: 20%; */
+    /* height: 50%; */
+    width: 11.4rem;
+    height: 19.5rem;
+    background: pink;
+    /* margin-top: 2.75rem; */
+    border-radius: 15px;
+    animation: products_enter 2s ease-out;
+    transition: transform .3s cubic-bezier(0.6, 4, 0.32, 0.13);
+    /* transition: transform .3s ease-out; */
+    cursor: pointer;
+}
+.products:nth-of-type(1){
+    background: url("../images/pnl_guanwagn_jieshao1.png") no-repeat 0px 0px/100% 100%;
+}
+.products:nth-of-type(2){
+    background: url("../images/pnl_guanwagn_jieshao2.png") no-repeat 0px 0px/100% 100%;
+}
+.products:nth-of-type(3){
+    background: url("../images/pnl_guanwagn_jieshao3.png") no-repeat 0px 0px/100% 100%;
+}
+.products:nth-of-type(4){
+    background: url("../images/pnl_guanwagn_jieshao4.png") no-repeat 0px 0px/100% 100%;
+}
+.products:hover{
+    /* transform: scale(-1.1, 1.1); */
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+}
+
+@keyframes products_enter{
+    0%{
+        transform: scale(.3, .3);
+    }
+    10%{
+        transform: scale(-.4, .4);
+    }
+    20%{
+        transform: scale(.5, .5);
+    }
+    30%{
+        transform: scale(-.6, .6);
+    }
+    40%{
+        transform: scale(.7, .7);
+    }
+    50%{
+        transform: scale(-.8, .8);
+    }
+    60%{
+        transform: scale(.9, .9);
+    }
+    80%{
+        transform: scale(-1, 1);
+    }
+    100%{
+        transform: scale(1, 1);
+    }
+}
+
+/* ----------------- culture ------------------ */
+.culture{
+    position: absolute;
+    top: 200%;
+    width: 100%;
+    height: 100%;
+    background: lightcoral;
+}
+/* ----------------- team ------------------ */
+.team{
+    position: absolute;
+    top: 300%;
+    width: 100%;
+    height: 100%;
+    background: rgb(187, 216, 118);
+}
+/* ------------------ contact ------------------- */
+.contact{
+    position: absolute;
+    top: 400%;
+    width: 100%;
+    height: 100%;
+    background: rgb(103, 223, 119);
+}
+/* ---------------- footer ------------------ */
+footer{
+    position: absolute;
+    top: 500%;
+    width: 100%;
+    height: 200px;
+    background: #2B2B2B;
+}
