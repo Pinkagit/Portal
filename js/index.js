@@ -1,44 +1,57 @@
 $(function(){
     
-    $(".icon-liebiao2").on("click", function() {
+    /* ------------------------ init ----------------------- */
+    var product_top, culture_top, team_top, contact_top;           //各模块到网页顶部的距离
+    var clientHeight, headHeight;
+
+    init_layout();
+    $(window).resize(init_layout);                                 //当浏览器改变大小时触发事件
+
+    function init_layout(params) {
+        clientHeight = $(window).height();                         //浏览器的可视高度
+        headHeight = parseInt($("header").css("height"));          //header的高度
+        $(".banner").css("height", clientHeight - headHeight);     //设置初始banner图的高度
+    }
+
+    $(".icon-liebiao2").on("click", function() {                   //nav icon
         $(".navbar-container").toggleClass("navbar-container-sacle1");
     })
+
+    /* ---------------------- nav ----------------------- */
+    var arr_nav = [];
+    $(".navbar-container li").each(function(i){
+        arr_nav.push($(this).text());
+    })
     
-    var clientHeight = $(window).height();          //浏览器的可视高度
-    $(".banner").css("height", clientHeight-50);    //设置初始banner图的高度
+    $(".navbar-container").on("click", "li", function() {          //nav 标签样式
+        $(this).siblings("li").removeClass("navbar_li_actived");
+        $(this).addClass("navbar_li_actived");
+        
+        var nav_flag = arr_nav.indexOf($(this).text());
 
-    layout();
-    $(window).resize(layout);   //当浏览器改变大小时触发
+        switch (nav_flag) {
+            case 0:         //定位到 主页
+                $('body,html').animate({ scrollTop: "0" }, 1000);
+                break;
+            case 1:         //定位到 产品欣赏
+                $('body,html').animate({ scrollTop: product_top - headHeight }, 1000);
+                break;
+            case 2:         //定位到 公司文化
+                $('body,html').animate({ scrollTop: culture_top - headHeight }, 1000);
+                break;
+            case 3:         //定位到 团队介绍
+                $('body,html').animate({ scrollTop: team_top - headHeight }, 1000);
+                break;
+            case 4:         //定位到 联系我们
+                $('body,html').animate({ scrollTop: contact_top - headHeight }, 1000);
+                break;
+            default:
+                break;
+        }
+        
+    })
 
-    function layout(){          //各个section的定位
-        var bannerHeight = $(".banner").css("height");
-        var topHeight = parseInt(bannerHeight) + 50 + "px";
-
-        $(".product").css({
-            top: topHeight
-        })
-        $(".culture").css({
-            top: function () {
-                return parseInt(topHeight) + parseInt($(".product").css("height")) + "px"
-            }
-        })
-        $(".team").css({
-            top: function () {
-                return parseInt($(".culture").css("top")) + parseInt($(".culture").css("height")) + "px"
-            }
-        })
-        $(".contact").css({
-            top: function () {
-                return parseInt($(".team").css("top")) + parseInt($(".team").css("height")) + "px"
-            }
-        })
-        $("footer").css({
-            top: function () {
-                return parseInt($(".contact").css("top")) + parseInt($(".contact").css("height")) + "px"
-            }
-        })
-    }
-    
+    /* ---------------------- banner ---------------------- */
     var img_flag = 0;
     var img_arr = ["../images/banner01.png", "../images/banner02.png", "../images/banner03.png"];
     var img_box = 2;        
@@ -49,7 +62,7 @@ $(function(){
         switch_banner();
     }, 2000);
 
-    function switch_banner() {      
+    function switch_banner() {      //banner图 切换特效
         var img_url = 'url("' + img_arr[(img_flag + 1) % img_arr.length] + '")';
         var img_index1 = img_flag % img_box;
         var img_index2 = (img_flag + 1) % img_box;
@@ -76,13 +89,14 @@ $(function(){
             })
         })
 
-        $(".title_line").eq(img_index1).css({
+        var title_flag = img_flag % img_arr.length;
+        $(".title_line").eq(title_flag).css({
             transform: "scale(1, 1)"
         })
         
         setTimeout(function(){
-            $(".title_mask").eq(img_index1).animate({ width: "100%" }, 4500).animate({ width: "0" }, 0, function(){
-                $(".title_line").eq(img_index1).css({
+            $(".title_mask").eq(title_flag).animate({ width: "100%" }, 4500).animate({ width: "0" }, 0, function(){
+                $(".title_line").eq(title_flag).css({
                     transform: "scale(0, 1)"
                 })
             })
@@ -91,6 +105,36 @@ $(function(){
         img_flag++;
     }
     
+    /* ----------------------- scroll ----------------------- */
+    $(window).scroll(offset_animation);     //当网页滚动时触发事件
+    setTimeout(() => {
+        product_top = $(".product").offset().top;
+        culture_top = $(".culture").offset().top;
+        team_top    = $(".team").offset().top;
+        contact_top = $(".contact").offset().top;
+        offset_animation();
+    }, 800);
     
+    function offset_animation() {
+        var scroll_top = $(window).scrollTop();         //垂直滚动条的滚动位置(可视区域到页面顶部距离)
+
+        if (clientHeight >= product_top - scroll_top + 300) {
+            $(".products").addClass("products_animation")
+        }
+
+        if (clientHeight >= culture_top - scroll_top + 300) {
+            $(".culture").find("p").eq(0).animate({opacity:"1"}, 1000);
+            $(".culture").find("p").eq(1).animate({ left: "50%", opacity: "1"},1000);
+            $(".culture").find("p").eq(2).animate({ left: "50%", opacity: "1"}, 1000);
+            $(".culture").find("p").eq(3).animate({ left: "50%", opacity: "1"}, 1000);
+        }
+
+        if (clientHeight >= team_top - scroll_top + 300) {
+            $(".team").find("p").eq(0).animate({ left: "0", opacity: "1" }, 1000);
+            $(".team").find("p").eq(1).animate({ left: "0", opacity: "1" }, 1000);
+            $(".team").find("p").eq(2).animate({ left: "0", opacity: "1" }, 1000);
+            $(".team").find("p").eq(3).animate({ left: "0", opacity: "1" }, 1000);
+        }
+    }
     
 })

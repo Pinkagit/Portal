@@ -18,7 +18,7 @@ html{
 .section_title{
     width: 19.5rem; 
     height: 3px;
-    margin: 50px auto;
+    margin: 90px auto;
     border: 1px solid #fff;
     background: #fff;
     text-align: center;
@@ -40,9 +40,6 @@ html{
 @media screen and (max-width:1200px){
     html{
         font-size: 18px;
-    }
-    .product{
-        /* height: auto !important; */
     }
 }
 @media screen and (min-width:990px) and (max-width:1200px){
@@ -92,7 +89,7 @@ html{
         float: right;
         margin-right: 16px;
         margin-top: 7px;
-        color: #fff;
+        color: #5E5E5E;
     }
     .navbar-container{
         flex-direction: column!important;
@@ -100,8 +97,15 @@ html{
         transform-origin: top center;
         margin-top: 50px !important;
     }
+    .navbar-container>li{
+        background: lightskyblue;
+        color: #fff !important;
+    }
     .banner {
         height: 400px !important;
+    }
+    .products{
+        margin: 5px;
     }
 }
 @media (max-width: 667px){
@@ -121,20 +125,35 @@ html{
     .banner{
         height: 280px !important;
     }
-    .product{
-        height: auto !important;
+    .banImg{
+        /* background-position: -100px !important; */
     }
-    .product .content{
-        margin-bottom: 40px;
-        padding-bottom: 30px;
+}
+@media (max-width:400px){
+    .products{
+        width: 150px !important;
+        height: 150px !important;
+        border-radius: 50% !important;
+    }
+    .products:nth-of-type(1){
+        background: url("../images/pnl_guanwagn_jieshao1.png") no-repeat -240px -380px !important;
+    }
+    .products:nth-of-type(2){
+        background: url("../images/pnl_guanwagn_jieshao2.png") no-repeat -240px -380px !important;
+    }
+    .products:nth-of-type(3){
+        background: url("../images/pnl_guanwagn_jieshao3.png") no-repeat -250px -400px !important;
+    }
+    .products:nth-of-type(4){
+        background: url("../images/pnl_guanwagn_jieshao4.png") no-repeat -10px -360px !important;
     }
 }
 
 /* ------------ nav ---------- */
 header{
-    background: lightcoral;
+    background: #fff;
     width: 100%;
-    height: 50px;
+    height: 3.35rem;
     position: fixed;
     z-index: 99;
 }
@@ -144,7 +163,7 @@ header>.container{
 .nav-brand{
     width: 200px;
     height: 100%;
-    background: khaki;
+    background: url("../images/icon_guanwagn_logo.png") no-repeat  0px 0px/contain;
     float: left;
     font-size: 25px;
     font-weight: 300;
@@ -153,9 +172,8 @@ header>.container{
     text-indent: 1em;
 }
 .nav-navbar{
-    width: 380px;
+    width: 580px;
     height: 100%;
-    background: lightskyblue;
     float: right;
     line-height: 2.5rem;
 }
@@ -170,26 +188,30 @@ header>.container{
     transition: all .5s;
 }
 .navbar-container>li{
-    background: lightseagreen;
-    font-size: 14px;
-    line-height: 2.5rem;
     text-align: center;
-    color: #fff;
+    color: #5E5E5E;
     flex: 1;
+    font: 24px/67px "Microsoft YaHei";
     cursor: pointer;
+    transition: all .3s;
 }
 .navbar-container>li:hover{
-    background: antiquewhite;
+    background: #327AF0;
+    color: #fff;
+}
+.navbar_li_actived{
+    background: #327AF0;
+    color: #fff !important;
 }
 /* ------------- banner ------------- */
 .banner{
-    position: absolute;
     width: 100%;
-    height: 100%;
+    height: 900px;
     transition: height 1s;
-    margin-top: 50px;
+    margin-top: 3.35rem;
     overflow: hidden;
     float: left;
+    position: relative;
 }
 #banner-container{
     width: 100%;
@@ -225,7 +247,7 @@ header>.container{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 7rem;
 }
 .banner_title>ul>li{
     text-align: center;
@@ -262,11 +284,10 @@ header>.container{
 }
 /* ---------------- product ----------------- */
 .product{
-    position: absolute;
-    top: 100%;
     width: 100%;
-    height: 100%;
+    float: left;
     background: rgba(50, 123, 240, 0.959);
+    padding-bottom: 80px;
 }
 .product .section_title>h4{
     background: rgba(50, 123, 240, 0.959);
@@ -274,23 +295,23 @@ header>.container{
 .product .content{
     background: #fff;
     border-radius: 15px;
+    padding: 20px 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 .products{
-    /* width: 20%; */
-    /* height: 50%; */
     width: 11.4rem;
     height: 19.5rem;
-    background: pink;
-    /* margin-top: 2.75rem; */
     border-radius: 15px;
-    animation: products_enter 2s ease-out;
     transition: transform .3s cubic-bezier(0.6, 4, 0.32, 0.13);
     /* transition: transform .3s ease-out; */
     cursor: pointer;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+}
+.products_animation{
+    animation: products_enter 2s ease-out;
 }
 .products:nth-of-type(1){
     background: url("../images/pnl_guanwagn_jieshao1.png") no-repeat 0px 0px/100% 100%;
@@ -339,36 +360,170 @@ header>.container{
         transform: scale(1, 1);
     }
 }
-
 /* ----------------- culture ------------------ */
 .culture{
-    position: absolute;
-    top: 200%;
     width: 100%;
-    height: 100%;
-    background: lightcoral;
+    float: left;
+    padding-bottom: 80px;
+    background: rgba(255, 196, 0,  0.959);
+}
+.culture .section_title>h4{
+    background: rgba(255, 196, 0,  0.959);
+}
+.culture .content{
+    box-sizing: border-box;
+    padding-top: 60px;
+    height: 700px;
+    border-radius: 15px;
+    background: #fff url("../images/bg_guanwagn_ditu1.png") no-repeat 0px 0px/100% 100%;
+}
+.culture article{
+    overflow: hidden;
+    text-align: center;
+}
+.culture article>p{
+    font: 23px "微软雅黑";
+    color: #5E5E5E;
+    position: relative;
+    transform: translateX(-50%);
+}
+.culture article>p:not(:last-child){
+    margin-bottom: 15px;
+}
+.culture article>p:nth-of-type(1){
+    opacity: 0;
+    left: 50%;
+}
+.culture article>p:nth-of-type(2){
+    width: 75%;
+    left: -80%;
+    opacity: 0;
+}
+.culture article>p:nth-of-type(3){
+    width: 70%;
+    left: 130%;
+    opacity: 0;
+}
+.culture article>p:nth-of-type(4){
+    width: 30%;
+    left: -80%;
+    opacity: 0;
 }
 /* ----------------- team ------------------ */
 .team{
-    position: absolute;
-    top: 300%;
     width: 100%;
-    height: 100%;
-    background: rgb(187, 216, 118);
+    float: left;
+    padding-bottom: 80px;
+    background: rgba(22, 156, 15, .959);
+}
+.team .section_title>h4{
+    background: rgba(22, 156, 15, .959);
+}
+.team .content{
+    box-sizing: border-box;
+    padding-top: 60px;
+    height: 700px;
+    border-radius: 15px;
+    background: #fff url("../images/bg_guanwagn_ditu2.png") no-repeat 0px 0px/100% 100%;
+}
+.team article{
+    width: 100%;
+    height: 40%;
+    /* background: lightblue; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.team article>p{
+    width: 40%;
+    float: left;
+    font: 23px "微软雅黑";
+    color: #5E5E5E;
+    text-align: center;
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: 20px 100px;
+    position: relative;
+}
+.team article>p:nth-of-type(1){
+    left: -50%;
+    opacity: 0;
+}
+.team article>p:nth-of-type(2){
+    left: 50%;
+    opacity: 0;
+}
+.team article>p:nth-of-type(3){
+    left: -50%;
+    opacity: 0;
+}
+.team article>p:nth-of-type(4){
+    left: 50%;
+    opacity: 0;
+}
+.team .box{
+    width: 100%;
+    height: 60%;
+    /* background: beige; */
+    overflow: hidden;
+}
+.team .members_box{
+    width: 800px;
+    height: 800px;
+    background: lightblue;
+    margin: 10px auto 0;
+    overflow: hidden;
+    border-radius: 50%;
+     display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.team .members{
+    width: 300px;
+    height: 300px;
+    background: lightcoral;
+    border-radius: 50%;
 }
 /* ------------------ contact ------------------- */
 .contact{
-    position: absolute;
-    top: 400%;
     width: 100%;
-    height: 100%;
-    background: rgb(103, 223, 119);
+    float: left;
+    padding-bottom: 80px;
+    background: rgba(255, 196, 0, .959);
 }
+.contact .section_title>h4{
+    background: rgba(255, 196, 0, .959);
+}
+.contact .content{
+    box-sizing: border-box;
+    padding-top: 60px;
+    height: 700px;
+    border-radius: 15px;
+    background: #fff url("../images/bg_guanwagn_ditu3.png") no-repeat 0px 0px/100% 100%;
+}
+
 /* ---------------- footer ------------------ */
 footer{
-    position: absolute;
-    top: 500%;
     width: 100%;
-    height: 200px;
+    height: 250px;
+    float: left;
     background: #2B2B2B;
+}
+footer article{
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    color: #c3c1c1;
+    overflow: hidden;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+footer article p{
+    margin: 10px auto 0;
+    text-align: center;
 }
