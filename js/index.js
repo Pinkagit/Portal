@@ -36,11 +36,11 @@ $(function(){
             case 1:         //定位到 产品欣赏
                 $('body,html').animate({ scrollTop: product_top - headHeight }, 1000);
                 break;
-            case 2:         //定位到 公司文化
-                $('body,html').animate({ scrollTop: culture_top - headHeight }, 1000);
-                break;
-            case 3:         //定位到 团队介绍
+            case 2:         //定位到 团队介绍
                 $('body,html').animate({ scrollTop: team_top - headHeight }, 1000);
+                break;
+            case 3:         //定位到 公司招聘
+                $('body,html').animate({ scrollTop: culture_top - headHeight }, 1000);
                 break;
             case 4:         //定位到 联系我们
                 $('body,html').animate({ scrollTop: contact_top - headHeight }, 1000);
@@ -53,7 +53,7 @@ $(function(){
 
     /* ---------------------- banner ---------------------- */
     var img_flag = 0;
-    var img_arr = ["../images/banner01.png", "../images/banner02.png", "../images/banner03.png"];
+    var img_arr = ["/static/images/banner01.png", "/static/images/banner02.png", "/static/images/banner03.png"];
     var img_box = 2;        
 
     setInterval(switch_banner, 7500);   //停留时间 7500 - 1500 + 1500
@@ -123,18 +123,85 @@ $(function(){
         }
 
         if (clientHeight >= culture_top - scroll_top + 300) {
-            $(".culture").find("p").eq(0).animate({opacity:"1"}, 1000);
-            $(".culture").find("p").eq(1).animate({ left: "50%", opacity: "1"},1000);
-            $(".culture").find("p").eq(2).animate({ left: "50%", opacity: "1"}, 1000);
-            $(".culture").find("p").eq(3).animate({ left: "50%", opacity: "1"}, 1000);
+            $(".content_article li").eq(0).css({ transform: "translate(0)" }, 1000);
+            $(".content_article li").eq(1).css({ opacity: "1" }, 1000);
+            $(".content_article li").eq(2).css({ transform: "translate(0)" }, 1000);
+            $(".content_article li").eq(3).css({ transform: "translate(0)" }, 1000);
+            $(".content_article li").eq(4).css({ opacity: "1" }, 1000);
+            $(".content_article li").eq(5).css({ transform: "translate(0)" }, 1000);
         }
 
         if (clientHeight >= team_top - scroll_top + 300) {
             $(".team").find("p").eq(0).animate({ left: "0", opacity: "1" }, 1000);
             $(".team").find("p").eq(1).animate({ left: "0", opacity: "1" }, 1000);
             $(".team").find("p").eq(2).animate({ left: "0", opacity: "1" }, 1000);
-            $(".team").find("p").eq(3).animate({ left: "0", opacity: "1" }, 1000);
+            $(".team").find("p").eq(3).animate({ left: "0", opacity: "1" }, 1000, function(){
+                $(".rotating-slider").css({
+                    transform: "rotate(360deg)",
+                    transition: "transform 2s",
+                    "transform-origin": "49% 199%"
+                })
+            });
+            
+        }
+
+        if (clientHeight >= contact_top - scroll_top + 300) {
+            $(".map_container").animate({ opacity: "1" }, 1000);
+            $(".address").animate({ opacity: "1" }, 1000);
         }
     }
+    
+    /* ------------------- rotating-slider -------------------- */
+    $('.rotating-slider').rotatingSlider({
+        autoRotate: true,               //自动播放
+        autoRotateInterval: 5000,       //自动播放的时间间隔
+        draggable: true,                //拖动
+
+        directionControls: true,        // 轮播图的左右控制按钮
+        // directionLeftText: '?',
+        // directionRightText: '?',
+
+        rotationSpeed: 750,             // 动画速度
+
+        slideHeight: 260,               // 轮播图的尺寸
+        slideWidth: 380,
+    });
+
+    /* ----------------------- map ----------------------- */
+    var map = new BMap.Map("map");                              // 创建地图实例
+    var point = new BMap.Point(121.539273, 31.224149);          // 创建点坐标
+    map.centerAndZoom(point, 16);                                // 初始化地图，设置中心点坐标和地图级别
+    // map.enableScrollWheelZoom(true);         //开启鼠标滚轮缩放
+
+    map.addControl(new BMap.OverviewMapControl());      //可折叠的缩略地图
+    map.addControl(new BMap.NavigationControl({
+        type: BMAP_NAVIGATION_CONTROL_ZOOM
+    }));
+    
+    var opts = {
+        width: 280,     // 信息窗口宽度    
+        height: 23,     // 信息窗口高度    
+        title: "<p class='map_title'>上海陆家嘴软件园8号研发楼</p>"  // 信息窗口标题   
+    }
+    var infoWindow = new BMap.InfoWindow("<p class='map_address'>地址：峨山路91弄120号</p>", opts);
+    map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+    
+    /* --------------------- video ------------------------ */
+    var arr_video = ["/static/video/01.mp4", "/static/video/02.mp4", "/static/video/03.mp4", "/static/video/04.mp4"]
+    
+    $(".products").each(function(i){
+        $(this).on("click", function(){
+            console.log(arr_video[i]);
+            $("#video_source").attr("src", arr_video[i]);
+            $("#video_source")[0].load();           // 重新加载资源
+            $("#video_source")[0].play();           // 开始播放
+            $("#product_video").css("transform", "translate(-50%, -50%)  scale(1,1)");
+        })
+    })
+    
+    $("#product_video .icon-guanbi1").on("click", function(){
+        $("#product_video").css("transform", "translate(-50%, -50%)  scale(1,0)");
+        $("#video_source")[0].pause();             // 暂停播放
+    })
     
 })

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./font/iconfont.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <title>上海磐火网络科技有限公司</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/font/iconfont.css">
+    <link rel="stylesheet" href="/static/css/rotating-slider.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <header>
@@ -19,8 +20,8 @@
                 <ul class="navbar-container">
                     <li class="navbar_li_actived">主页</li>
                     <li>产品欣赏</li>
-                    <li>公司文化</li>
                     <li>团队介绍</li>
+                    <li>公司招聘</li>
                     <li>联系我们</li>
                 </ul>
             </div>
@@ -37,28 +38,28 @@
             <ul>
                 <li>
                     <div class="bottom_layer">
-                        <i class="iconfont icon-rili"></i>aaaaa   
+                        <i class="iconfont icon-rili"></i>1
                     </div>
                     <div class="title_mask">
-                        <i class="iconfont icon-rili"></i>aaaaa 
+                        <i class="iconfont icon-rili"></i>1
                     </div>
                     <div class="title_line"></div>
                 </li>
                 <li>
                     <div class="bottom_layer">
-                        <i class="iconfont icon-rili1"></i>bbbbb
+                        <i class="iconfont icon-rili1"></i>2
                     </div>
                     <div class="title_mask">
-                        <i class="iconfont icon-rili1"></i>bbbbb
+                        <i class="iconfont icon-rili1"></i>2
                     </div>
                     <div class="title_line"></div>
                 </li>
                 <li>
                     <div class="bottom_layer">
-                        <i class="iconfont icon-rili2"></i>ccccc
+                        <i class="iconfont icon-rili2"></i>3
                     </div>
                     <div class="title_mask">
-                        <i class="iconfont icon-rili2"></i>ccccc
+                        <i class="iconfont icon-rili2"></i>4
                     </div>
                     <div class="title_line"></div>
                 </li>
@@ -71,29 +72,21 @@
                 <h4>产品介绍</h4>
             </div>
             <div class="content">
-                <div class="products"></div>
-                <div class="products"></div>
-                <div class="products"></div>
-                <div class="products"></div>
+                <div class="products"><span class="products_box"><i class="iconfont icon-bofang"></i></span></div>
+                <div class="products"><span class="products_box"><i class="iconfont icon-bofang"></i></span></div>
+                <div class="products"><span class="products_box"><i class="iconfont icon-bofang"></i></span></div>
+                <div class="products"><span class="products_box"><i class="iconfont icon-bofang"></i></span></div>
             </div>
         </div>
-    </section>
-    <section class="culture">
-        <div class="container">
-            <div class="section_title">
-                <h4>公司文化</h4>
-            </div>
-            <div class="content">
-                <article>
-                    <p>和优秀的人一起工作</p>
-                    <p>磐火致力于为优秀的人提供最优秀的工作环境，我们一直打造的平等、开放、有爱的文化氛围，鼓励所有的人展现自己最富有创造力的一面。</p>
-                    <p>磐火里有业界顶尖的游戏技术专家、有拥有无限想象力的设计师、有圈内闻名的原画大触、有擎天撼地的运营人才， 和优秀的人一起工作，</p>
-                    <p>在磐火成为更优秀的自己。</p>
-                </article>
-                
-            </div>
+        <div id="product_video">
+            <i class="iconfont icon-guanbi1"></i>
+            <video controls id="video_source">
+                <source src="./video/01.mp4" >
+                您的浏览器不支持 HTML5 video 标签
+            </video>
         </div>
     </section>
+   
     <section class="team">
         <div class="container">
             <div class="section_title">
@@ -107,22 +100,107 @@
                     <p>年度旅游、团队建设、不限量零食饮料、节日礼物等多种福利，天下没有免费的晚餐？磐火就有！</p>
                 </article>
                 <div class="box">
-                    <div class="members_box">
-                        <div class="members">
-                            
-                        </div>
+                    <div class="rotating-slider">
+                        <ul class="slides">
+                            <li>
+                                <div class="inner">
+                                  <!--   <h2>aaaaa</h2>
+                                    <p>aaaaaaa.</p> -->
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner">
+                                   <!--  <h2>bbbb</h2>
+                                    <p>bbbbbb</p> -->
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner">
+                                    <!-- <h2>cccc</h2>
+                                    <p>ccccccc</p> -->
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner">
+                                    <!-- <h2>ddd</h2>
+                                    <p>dddd</p> -->
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner">
+                                    <!-- <h2>eeee</h2>
+                                    <p>eeeee</p> -->
+                                </div>
+                            </li>
+                            <!-- <li>
+                                <div class="inner">
+                                  
+                                </div>
+                            </li> -->
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="culture">
+        <div class="container">
+            <div class="section_title">
+                <h4>公司招聘</h4>
+            </div>
+            <div class="content">
+                <article>
+                    <h4>和优秀的人一起工作</h4>
+                </article>
+                <ul class="content_article">
+                    <li>
+                        <h4>游戏策划师</h4>
+                        <p>岗位职责：负责游戏系统及活动的设计，深入体验产品并进行优化，协助实现部分游戏功能及运营工作</p>
+                        <p>任职要求：本科及以上学历，游戏经历丰富，有相关经验者、熟悉lua或其他脚本语言者优先</p>
+                    </li>
+                    <li>
+                        <h4>游戏测试员</h4>
+                        <p>岗位职责：进行游戏功能测试并提交bug，对bug生命周期跟踪反馈，与其他部门保持良好沟通并提供支持</p>
+                        <p>任职要求：不限学历，游戏经历丰富，工作态度严谨务实，有耐心、重效率，抗压能力强</p>
+                    </li>
+                    <li><h4>游戏服务器开发工程师</h4>
+                        <p>岗位职责：负责游戏后台的架构设计、开发、优化、稳定性，包括游戏逻辑、游戏开发工具和平台数据支持等工作</p>
+                        <p>任职要求：本科及以上学历，熟练掌握C/C++/Java等开发语言以及常见的数据结构和算法，熟悉TCP/UDP网络协议、进程间通讯、MYSQL数据库，了解服务器常用脚本语言Python/Shell/Perl/Lua等，有相关编程经验者优先，了解服务器相关技术（分布式系统设计开发/负载均衡/系统容灾/网络安全/设计模式等）优先</p>
+                    </li>
+                    <li><h4>游戏客户端开发工程师</h4>
+                        <p>岗位职责：负责研发跨平台、性能及图形表现优异、满足玩家需求的手机游戏客户端，开发游戏逻辑、游戏引擎、游戏研发工具等。</p>
+                        <p>任职要求：本科及以上学历，熟悉算法和数据结构，至少掌握一门游戏开发语言(C/C++/C#/Java)，有良好解决问题的能力，对前沿技术有热情并主动学习，熟练C++/C#者优先，具有游戏引擎（Unity/Unreal/OGRE等）相关知识者优先，了解客户端开发技术（图形/音频/物理/AI/网络等）优先</p>
+                    </li>
+                    <li><h4>游戏角色原画</h4>
+                        <p>岗位职责：负责制作游戏内美术原画，包括角色、武器道具类的设定，产品级人物插图的绘制，配合开发人员丰富画面内容，提高游戏画面的观赏性</p>
+                        <p>任职要求：美术相关类专业，具有扎实的美术功底，丰富的想象力和创新能力，对造型和色彩控制能力强，有独立设计能力，热爱游戏行业</p>
+                    </li>
+                    <li><h4>游戏场景原画</h4>
+                        <p>岗位职责：负责制作游戏内美术原画，包括场景、武器道具类的设定，产品级的场景插图的绘制，配合开发人员丰富画面内容，提高游戏画面的观赏性</p>
+                        <p>任职要求：美术相关类专业，具有扎实的美术功底，丰富的想象力和创新能力，对造型和色彩控制能力强，有独立设计能力，热爱游戏行业</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
     <section class="contact">
         <div class="container">
             <div class="section_title">
                 <h4>联系我们</h4>
             </div>
             <div class="content">
-                
+                <div class="map_container">
+                    <div id="map">
+                    </div>
+                </div>
+                <div class="address">
+                    <p>上海市浦东新区峨山路91弄120号陆家嘴软件园8号楼401A单元</p>
+                    <p>公司网站：www.rockgame123.com</p>
+                    <p>ken.fang@rockgame123.com</p>
+                    <p>021-50655311</p>
+                </div>
             </div>
         </div>
     </section>
@@ -137,7 +215,9 @@
             </article>
         </div>
     </footer>
-    <script src="./js/jquery-1.11.1.min.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <script src="/static/js/jquery.rotating-slider.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=93tyz57wjSyEwbFMevEutjetpv4WULHW"></script>
+    <script src="/static/js/index.js"></script>
 </body>
 </html>
