@@ -53,7 +53,7 @@ $(function(){
 
     /* ---------------------- banner ---------------------- */
     var img_flag = 0;
-    var img_arr = ["../images/banner01.png", "../images/banner02.png", "../images/banner03.png"];
+    var img_arr = ["./images/banner01.png", "./images/banner02.png", "./images/banner03.png"];
     var img_box = 2;        
 
     setInterval(switch_banner, 7500);   //停留时间 7500 - 1500 + 1500
@@ -187,7 +187,7 @@ $(function(){
     map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
     
     /* --------------------- video ------------------------ */
-    var arr_video = ["../video/01.mp4", "../video/02.mp4", "../video/03.mp4", "../video/04.mp4"]
+    var arr_video = ["./video/01.mp4", "./video/02.mp4", "./video/03.mp4", "./video/04.mp4"]
     
     $(".products").each(function(i){
         $(this).on("click", function(){
