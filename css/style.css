@@ -60,6 +60,11 @@ html{
         font-size: 17px !important;
         line-height: 50.25px !important;
     }
+    .culture .content_article>li{
+        overflow: auto;
+        width: 50%;
+        height: 30%;
+    }
 }
 @media screen and (min-width:770px) and (max-width:990px){
     html{
@@ -333,8 +338,8 @@ header>.container{
     transition: all 1.5s;
 }
 .banner_title>ul>li i{
-    font-size: 28px;
-    margin-right: 5px;
+    font-size: 35px;
+    /* margin-right: 5px; */
 }
 /* ---------------- product ----------------- */
 .product{
@@ -500,7 +505,6 @@ header>.container{
     display: block;
     float: left;
     /* background: #fff; */
-    margin: 1px;
     color: #5e5e5e;
     transition: transform 1s;
 }
@@ -677,7 +681,7 @@ header>.container{
     text-align: center;
     color: #5E5E5E;
     margin-top: 15px;
-    font-size: 24px;
+    font-size: 1.2rem;
 }
 .map_title{
     font-size: 17px;
